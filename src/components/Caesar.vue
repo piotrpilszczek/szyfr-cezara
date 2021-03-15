@@ -1,6 +1,7 @@
 <template>
   <div class="caesar">
     <h1>> Szyfr Cezara</h1>
+    <p>Wykonane przez: <b>Piotr Pilszczek</b>, 2ce-n</p><br><br>
     <form class="caesar-form" @submit.prevent="handleCaesar">
       <div class="caesar-form-inputs">
         <input :disabled="loading" class="main-input" v-model="randomWord.word" placeholder="Wpisz tekst do konwersji..." />
@@ -146,5 +147,15 @@ export default defineComponent({
     align-items: center;
     justify-content: center;
     background-color: #2c3e50;
+  }
+
+  @media screen and (max-width: 600px) {
+    .caesar .caesar-form, .caesar .caesar-result {
+      width: 90vw !important;
+    }
+
+    .caesar .caesar-form .caesar-form-buttons {
+      flex-direction: column;
+    }
   }
 </style>

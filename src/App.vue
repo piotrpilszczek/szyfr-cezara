@@ -15,14 +15,17 @@ export default defineComponent({
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
-* {
-  font-family: 'Inconsolata', monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: white;
-  background-color: #242932;
-}
+  * {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    color: white;
+    background-color: #242932;
+  }
+
+  ::selection {
+    background-color: white;
+    color: black;
+  }
 </style>
