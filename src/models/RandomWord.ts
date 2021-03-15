@@ -19,9 +19,10 @@ export default class RandomWord extends RandomWordDTO {
         .catch(e => { throw e; })
     }
 
-    async getAmount(): Promise<void> {
-        return fetch('http://numbersapi.com/random/math?min=1&max=27').then(result => result.text().then(text => { this.amount = parseInt(text.split(" ")[0]) }))
-        .catch(e => { throw e; });
+    getAmount(min = 1, max = 27): void {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        this.amount = Math.floor(Math.random() * (max - min)) + min;
     }
 
     caesarCipher(): string {

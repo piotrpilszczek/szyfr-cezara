@@ -40,12 +40,7 @@ export default defineComponent({
       .finally(() => loading.value = false);
     }
 
-    const getRandomAmount = () => {
-      loading.value = true;
-      randomWord.value.getAmount()
-      .catch(e => result.value = `Wystąpił błąd! ${ e }`)
-      .finally(() => loading.value = false);
-    }
+    const getRandomAmount = () => randomWord.value.getAmount()
 
     return {
       handleCaesar,
