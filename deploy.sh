@@ -5,5 +5,5 @@ cd dist
 git init
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:piotrpilszczek/szyfr-cezara.git gh-pages:gh-pages
+git push -f git@github.com:piotrpilszczek/szyfr-cezara.git master:gh-pages
 cd -
