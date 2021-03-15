@@ -124,8 +124,9 @@ export default defineComponent({
     color: white;
   }
 
-  button[disabled], input[disabled] {
-    opacity: 70%;
+  button[disabled] {
+    border: 1px #242932 solid;
+    background-color: #242932;
   }
 
   .primary {
