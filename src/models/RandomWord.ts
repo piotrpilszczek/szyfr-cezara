@@ -25,8 +25,8 @@ export default class RandomWord extends RandomWordDTO {
         this.amount = Math.floor(Math.random() * (max - min)) + min;
     }
 
-    caesarCipher(): string {
-        const alphabet = "abcdefghijklmnopqrstuvwxyz", fullAlphabet = alphabet + alphabet + alphabet, cipherText = this.word, cipherOffset = this.amount % alphabet.length
+    caesarCipher(mode = 1): string {
+        const alphabet = "abcdefghijklmnopqrstuvwxyz", fullAlphabet = alphabet + alphabet + alphabet, cipherText = this.word, cipherOffset = mode * (this.amount % alphabet.length)
         let cipherFinish = '';
 
         cipherText.split('').forEach(letter => {

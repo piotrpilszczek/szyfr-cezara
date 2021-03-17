@@ -2,7 +2,7 @@
   <div class="caesar">
     <h1>> Szyfr Cezara</h1>
     <p>Wykonane przez: <b>Piotr Pilszczek</b>, 2ce-n</p><br><br>
-    <form class="caesar-form" @submit.prevent="handleCaesar">
+    <form class="caesar-form" @submit.prevent="">
       <div class="caesar-form-inputs">
         <input :disabled="loading" class="main-input" v-model="randomWord.word" placeholder="Wpisz tekst do konwersji..." />
         <input :disabled="loading" v-model="randomWord.amount" placeholder="Przes..." />
@@ -10,7 +10,10 @@
       <div class="caesar-form-buttons">
         <button :disabled="loading" @click="getRandomWord">Losuj słowo</button>
         <button :disabled="loading" @click="getRandomAmount">Losuj przes.</button>
-        <button :disabled="loading" class="primary" type="submit">Konwertuj</button>
+      </div>
+      <div class="caesar-form-buttons">
+        <button @click="handleCaesar" :disabled="loading" class="primary" type="submit">Szyfruj</button>
+        <button @click="handleCaesarBack" :disabled="loading" class="primary" type="submit">Odszyfruj</button>
       </div>
     </form>
     <div class="caesar-result">
@@ -30,9 +33,8 @@ export default defineComponent({
     const result = ref<string>('');
     const loading = ref<boolean>(false);
 
-    const handleCaesar = () => {
-      result.value = !randomWord.value.word ? "Wpisz tekst!" : result.value = randomWord.value.caesarCipher();
-    }
+    const handleCaesar = () => result.value = !randomWord.value.word ? "Wpisz tekst!" : result.value = randomWord.value.caesarCipher();
+    const handleCaesarBack = () => result.value = !randomWord.value.word ? "Wpisz tekst!" : result.value = randomWord.value.caesarCipher(-1);
 
     const getRandomWord = () => {
       loading.value = true;
@@ -49,7 +51,8 @@ export default defineComponent({
       getRandomWord,
       loading,
       result,
-      getRandomAmount
+      getRandomAmount,
+      handleCaesarBack
     }
   }
 });
